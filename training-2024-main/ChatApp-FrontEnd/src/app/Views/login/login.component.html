@@ -1,23 +1,27 @@
-<div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title text-center">Login</h3>
-            <form (ngSubmit)="onLogin()">
-              <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" required>
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">Login</button>
-            </form>
-          </div>
+<!--ring div starts here-->
+<div class="parent">
+  <div class="ring">
+      <i style="--clr:#00b7ff;"></i>
+      <i style="--clr:#8b30a98a;"></i>
+      <div class="login">
+        <h2>Login</h2>
+      <form action="#">
+        <div class="inputBx">
+          <input type="email" [(ngModel)]="loginObj.email" name="email" required>
         </div>
+        <div class="inputBx">
+          <input type="password" [(ngModel)]="loginObj.password" name="password" required>
+        </div>
+        <div class="inputBx">
+          <input type="button" value="Login" (click)="onLogin()">
+        </div>
+        <div class="links">
+          <a href="#">Forget Password</a>
+          <a href="#">Signup</a>
+        </div>
+      </form>
       </div>
     </div>
-  </div>
-  
+<!-- </div> -->
+
+<!--ring div ends here-->
