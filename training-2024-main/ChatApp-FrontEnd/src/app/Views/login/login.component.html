@@ -1,27 +1,24 @@
 <!--ring div starts here-->
 <div class="parent">
-  <div class="ring">
-      <i style="--clr:#00b7ff;"></i>
-      <i style="--clr:#8b30a98a;"></i>
-      <div class="login">
-        <h2>Login</h2>
-      <form action="#">
-        <div class="inputBx">
-          <input type="email" [(ngModel)]="loginObj.email" name="email" required>
-        </div>
-        <div class="inputBx">
-          <input type="password" [(ngModel)]="loginObj.password" name="password" required>
-        </div>
-        <div class="inputBx">
-          <input type="button" value="Login" (click)="onLogin()">
-        </div>
-        <div class="links">
-          <a href="#">Forget Password</a>
-          <a href="#">Signup</a>
-        </div>
-      </form>
-      </div>
-    </div>
-<!-- </div> -->
+    <div class="ring">
+        <i style="--clr:#00b7ff;"></i>
+        <i style="--clr:#8b30a98a;"></i>
+        <div class="login">
+            <h2>Login</h2>
+            <form (ngSubmit)="onLogin()">
+                <div class="inputBx">
+                    <input type="text" id="username" [(ngModel)]="username" name="username" required>
+                </div>
+                <div class="inputBx">
+                    <input type="password" id="password" [(ngModel)]="password" name="password" required>
+                </div>
+                <div class="inputBx">
+                    <input type="submit" value="Login" class="loginBtn">
+                </div>
 
-<!--ring div ends here-->
+            </form>
+        </div>
+    </div>
+    <!-- </div> -->
+
+    <!--ring div ends here-->

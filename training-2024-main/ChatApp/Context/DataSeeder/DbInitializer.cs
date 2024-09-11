@@ -26,7 +26,8 @@ namespace ChatApp
                 new Profile { FirstName = "Pawas", LastName = "Agrawal", UserName = "pagrawal", Email = "pawas.agrawal@argusoft.in", Password = "password123", ProfileType = ProfileType.User, CreatedAt = DateTime.Now, CreatedBy = 1, LastUpdatedAt = DateTime.Now, LastUpdatedBy = 1 },
                 new Profile { FirstName = "Ayush", LastName = "Anand", UserName = "aanand", Email = "ayush.anand@argusoft.in", Password = "password123", ProfileType = ProfileType.User, CreatedAt = DateTime.Now, CreatedBy = 1, LastUpdatedAt = DateTime.Now, LastUpdatedBy = 1 },
                 new Profile { FirstName = "Vidhi", LastName = "Kumari", UserName = "vkumari", Email = "vidhi.kumari@argusoft.in", Password = "password123", ProfileType = ProfileType.User, CreatedAt = DateTime.Now, CreatedBy = 1, LastUpdatedAt = DateTime.Now, LastUpdatedBy = 1 },
-                new Profile { FirstName = "Vivek", LastName = "Singh", UserName = "vsingh", Email = "vivek.singh@argusoft.in", Password = "password123", ProfileType = ProfileType.User, CreatedAt = DateTime.Now, CreatedBy = 1, LastUpdatedAt = DateTime.Now, LastUpdatedBy = 1 }
+                new Profile { FirstName = "Vivek", LastName = "Singh", UserName = "vsingh", Email = "vivek.singh@argusoft.in", Password = "password123", ProfileType = ProfileType.User, CreatedAt = DateTime.Now, CreatedBy = 1, LastUpdatedAt = DateTime.Now, LastUpdatedBy = 1 },
+                new Profile { FirstName = "Stuti", LastName = "Mittal", UserName = "smittal", Email = "stuti.mittal@argusoft.in", Password = "password123", ProfileType = ProfileType.User, CreatedAt = DateTime.Now, CreatedBy = 1, LastUpdatedAt = DateTime.Now, LastUpdatedBy = 1 }
             };
 
             foreach (Profile p in profiles)
