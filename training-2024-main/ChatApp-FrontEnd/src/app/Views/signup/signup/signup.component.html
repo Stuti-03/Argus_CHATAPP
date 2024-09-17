@@ -1,0 +1,39 @@
+<div class="parent">
+    <img src="../../../assets/realistic-galaxy-background_23-2148991322.avif" class="bg-img">
+    <!-- <div class="ring">
+        <i style="--clr:#8b38d3;"></i>
+        <i style="--clr:white;"></i> -->
+    <!-- <div class="card"> -->
+    <div class="signup">
+        <h2>Signup</h2>
+        <div class="inputs">
+            <form (ngSubmit)="onSignup()" class="signUpForm">
+                <div class="inputBox">
+                    <label for="firstname">First Name</label>
+                    <input type="text" id="firstname" name="firstname" [(ngModel)]="firstname" required>
+                </div>
+                <div class="inputBox">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" id="lastname" name="lastname" [(ngModel)]="lastname" required>
+                </div>
+                <div class="inputBox">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" [(ngModel)]="email" required>
+                </div>
+                <div class="inputBox">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" [(ngModel)]="username" required>
+                </div>
+                <div class="inputBox">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" [(ngModel)]="password" required>
+                </div>
+                <div class="inputBox">
+                    <input type="submit" value="Signup" class="signupBtn">
+                </div>
+                <div class="links"> Already a user? <span><a [routerLink]="['/login']">Login</a></span></div>
+
+            </form>
+        </div>
+    </div>
+</div>

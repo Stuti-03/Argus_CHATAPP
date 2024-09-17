@@ -1,24 +1,25 @@
-<!--ring div starts here-->
 <div class="parent">
+    <img src="../../../assets/realistic-galaxy-background_23-2148991322.avif" class="bg-img">
     <div class="ring">
-        <i style="--clr:#00b7ff;"></i>
-        <i style="--clr:#8b30a98a;"></i>
+        <i style="--clr:#8b38d3;"></i>
+        <i style="--clr:white;"></i>
+        <!-- <div class="card"> -->
         <div class="login">
             <h2>Login</h2>
             <form (ngSubmit)="onLogin()">
                 <div class="inputBx">
+                    <label for="username">Username</label>
                     <input type="text" id="username" [(ngModel)]="username" name="username" required>
                 </div>
                 <div class="inputBx">
+                    <label for="password">Password</label>
                     <input type="password" id="password" [(ngModel)]="password" name="password" required>
                 </div>
                 <div class="inputBx">
                     <input type="submit" value="Login" class="loginBtn">
                 </div>
-
+                <div class="links"> New User?<span><a [routerLink]="['/signup']">Sign Up</a></span></div>
             </form>
         </div>
     </div>
-    <!-- </div> -->
-
-    <!--ring div ends here-->
+</div>

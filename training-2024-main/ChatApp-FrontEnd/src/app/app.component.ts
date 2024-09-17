@@ -3,14 +3,16 @@ import { RouterOutlet } from '@angular/router';
 import { LoaderComponent } from './SharedComponents/loader/loader.component';
 import { LoaderService } from './Services/loader/loader.service';
 import { CommonModule } from '@angular/common';
+import { DashboardComponent } from "./Views/dashboard/dashboard.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LoaderComponent,RouterOutlet,CommonModule],
+  imports: [LoaderComponent, RouterOutlet, CommonModule, DashboardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent implements OnInit {
   title = 'ChatApp-FrontEnd';
   isLoading = false;

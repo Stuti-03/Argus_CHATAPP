@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.bg-img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+// .ring {
+//     position: relative;
+//     width: 500px;
+//     height: 500px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+// .card {
+//     background-color: #b491c8;
+//     height: 630px;
+//     width: 400px;
+//     border-radius: 20px;
+//     justify-content: center;
+//     align-items: center;
+// }
+.signupBtn {
+    background-color: transparent;
+    transition: 0.5s;
+    padding-top: 5%;
+}
+
+.signupBtn:hover {
+    background-color: #663a82 !important;
+}
+
+.signup {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.signup h2 {
+    font-size: 2em;
+    height: 10%;
+    width: 40%;
+    padding-top: 3.5%;
+    color: white;
+    border: 2px solid #3c1361;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: black;
+    box-shadow: none;
+    outline: none;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    justify-content: center;
+    align-items: center;
+}
+
+.signUpForm {
+    display: flex;
+    flex-wrap: wrap;
+    // gap: 2rem;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.inputBox {
+    position: relative;
+    width: 20rem;
+    padding-bottom: 4%;
+}
+
+.inputBox label {
+    color: white;
+    font-size: 15px;
+}
+
+.inputBox input {
+    position: relative;
+    width: 100%;
+    padding: 12px 15px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 40px;
+    font-size: 1.2em;
+    color: #fff;
+    box-shadow: none;
+    outline: none;
+}
+
+.inputBox input::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.links {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: white;
+    font-size: 14px;
+}
+
+.links span {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 2%;
+    border: 2px solid #fff;
+    border-radius: 40px;
+    font-size: 1.2em;
+    box-shadow: none;
+    outline: none;
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.links span:hover {
+    background-color: #8b30a98a !important;
+}

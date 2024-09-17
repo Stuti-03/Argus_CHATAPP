@@ -1,1 +1,41 @@
-<p>dashboard works!</p>
+<div class="layout">
+    <div id="sidebar">
+        <div id="row1">
+            <div id="sidebarHeader">
+                <div class="avatarContainer">
+                    <img src="#" />
+                </div>
+                <div class="actionsContainer">
+                    <img src="#" />
+                    <img src="#" />
+                    <img src="#" />
+                </div>
+            </div>
+            <div id="searchBox">
+                <img width="19" src="#" />
+                <input type="text" placeholder="Search or start the new chat" />
+            </div>
+        </div>
+
+        <div id="sidebarContent">
+            <!-- <div id="noConversations">All chats are archived</div> -->
+
+            <div class="conversation" *ngFor="let conversation of conversations">
+                <div class="picture">
+                    <img src="#" />
+                </div>
+                <div class="content">
+                    <div class="conversationHeader">
+                        <div class="name">{{ conversation.name }}</div>
+                        <div class="time">{{ conversation.time }}</div>
+                    </div>
+                    <div class="message">
+                        <img *ngIf="!conversation.latestMessageRead" src="#" />
+                        <img *ngIf="conversation.latestMessageRead" src="#" /> {{ conversation.latestMessage }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

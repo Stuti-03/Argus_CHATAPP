@@ -10,13 +10,20 @@ import { API_ENDPOINTS } from '../../Constants/app.constants';
 export class AuthService {
   private loginUrl = API_ENDPOINTS.loginUrl;
 
-  constructor(private http: HttpClient) 
-  { 
+  constructor(private http: HttpClient)
+  {
 
   }
 
-  login(credentials: { username: string; password: string }): Observable<any> 
+  login(credentials: { username: string; password: string }): Observable<any>
   {
     return this.http.post(this.loginUrl, credentials);
+  }
+
+  // implementing SIGNUP method in AuthService
+  private registerUrl = API_ENDPOINTS.registerUrl;
+  register(credentials_signup: {}): Observable<any>
+  {
+    return this.http.post(this.registerUrl, credentials_signup);
   }
 }

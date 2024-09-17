@@ -22,7 +22,7 @@ public class Startup
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder.WithOrigins("http://localhost:4200")
+                    builder => builder.WithOrigins(Configuration["Jwt:Client_URL"])
                                       .AllowAnyMethod()
                                       .AllowAnyHeader()
                                       .AllowCredentials());
@@ -47,6 +47,26 @@ public class Startup
              });
 
             services.AddControllersWithViews();
+
+
+            //JWT Authentication
+            // services.AddAuthentication(x => 
+            // {
+            //     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //     x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //     x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            // }).AddJwtBearer(x => {
+            //     x.RequireHttpsMetadata = false;
+            //     x.SaveToken = false;
+            //     x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+            //     {
+            //         ValidateIssuerSigningKey = true,
+            //          ValidIssuer = Configuration["Jwt:Issuer"],
+            //          ValidAudience = Configuration["Jwt:Issuer"],
+            //          IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"])),
+            //          ClockSkew = TimeSpan.Zero
+            //     };
+            // });
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
