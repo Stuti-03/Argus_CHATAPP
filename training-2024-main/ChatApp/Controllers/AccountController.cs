@@ -4,6 +4,7 @@ using System.Text;
 using ChatApp.Business.Helpers;
 using ChatApp.Business.ServiceInterfaces;
 using ChatApp.Context.EntityClasses;
+using ChatApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -48,6 +49,14 @@ namespace ChatApp;
                 return Ok(new { token = tokenString, user = user });
             }
             return BadRequest(new { Message = "User Already Exists. Please use different email and UserName." });
+        }
+
+        // for retrieving data in dashboard
+        [HttpGet("GetUsers")]
+        public ActionResult<List<ProfileModel>> GetAllUsers(int id)
+        {
+            var profiles = _profileService.GetAllUsers(id);
+            return Ok(profiles);
         }
 
         private string GenerateJSONWebToken(Profile profileInfo)

@@ -1,6 +1,7 @@
 ﻿using ChatApp.Business.Helpers;
 using ChatApp.Business.ServiceInterfaces;
 using ChatApp.Context.EntityClasses;
+using ChatApp.Models;
 
 namespace ChatApp;
 
@@ -31,7 +32,10 @@ public class ProfileService : IProfileService
                     UserName = regModel.UserName,
                     Email = regModel.Email,
                     CreatedAt = DateTime.UtcNow,
-                    ProfileType = ProfileType.User
+                    ProfileType = ProfileType.User,
+                    CreatedBy = 1,
+                    LastUpdatedBy = 1,
+                    LastUpdatedAt = DateTime.UtcNow
                 };
                 context.Profiles.Add(newUser);
                 context.SaveChanges();
@@ -39,6 +43,16 @@ public class ProfileService : IProfileService
             return newUser;
         }
 
+public List<ProfileModel> GetAllUsers(int id)
+    {
+        return context.Profiles.Where(s => s.Id != id).Select(profile => new ProfileModel
+        {
+            FirstName = profile.FirstName,
+            LastName = profile.LastName,
+            Email = profile.Email,
+            UserName = profile.UserName
+        }).ToList();
+    }
         private bool CheckEmailOrUserNameExists(string userName, string email)
         {
             return context.Profiles.Any(x => x.Email.ToLower().Trim() == email.ToLower().Trim() || x.UserName.ToLower().Trim() == userName.ToLower().Trim());

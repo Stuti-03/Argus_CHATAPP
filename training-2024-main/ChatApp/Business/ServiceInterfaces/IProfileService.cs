@@ -1,4 +1,6 @@
 ﻿using ChatApp.Context.EntityClasses;
+using ChatApp.Models;
+
 //using ChatApp.Models;
 using System;
 using System.Collections.Generic;
@@ -11,5 +13,7 @@ namespace ChatApp.Business.ServiceInterfaces
     {
         Profile CheckPassword(LoginModel loginModel);
         Profile RegisterUser(RegisterModel regModel);
+
+        List<ProfileModel> GetAllUsers(int id);
     }
 }
