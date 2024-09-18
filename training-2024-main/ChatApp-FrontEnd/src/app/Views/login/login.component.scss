@@ -3,13 +3,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 100vh;
+        height: 100%;
         width: 100%;
+        background: black;
     }
 
     .bg-img {
         position: absolute;
-        height: 100%;
         width: 100%;
     }
 
@@ -22,13 +22,29 @@
         align-items: center;
     }
 
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .loginBtn {
         background-color: transparent;
         transition: 0.5s;
+        font-size: 1.2em;
+        width: 50%;
+        position: relative;
+        padding: 2.5% 0%;
+        color: white;
+        margin-bottom: 2%;
+        border-radius: 10px;
+        border: 2px solid #8b38d3;
     }
 
     .loginBtn:hover {
-        background-color: #663a82 !important;
+        background-color: black !important;
+        color: white;
+        font-size: 1.3em;
     }
 
     .ring i {
@@ -87,19 +103,15 @@
     }
 
     .login h2 {
-        font-size: 2em;
+        font-size: 3em;
         height: 14%;
         width: 90%;
         padding-top: 5%;
         color: white;
-        border: 2px solid #3c1361;
-        border-radius: 10px;
+        font-weight: 500;
         justify-content: center;
         align-items: center;
         text-align: center;
-        background: black;
-        box-shadow: none;
-        outline: none;
     }
 
     .inputBx {
@@ -134,28 +146,25 @@
         position: relative;
         width: 100%;
         display: flex;
+        justify-content: center;
         align-items: center;
-        justify-content: space-between;
-        padding: 0 15px;
-        color: white;
-        font-size: 14px;
+        gap: 15px;
+        padding: 10px 30px;
     }
 
     .links span {
         color: #fff;
         text-decoration: none;
-        padding: 2%;
-        border: 2px solid #fff;
-        border-radius: 40px;
-        font-size: 1.2em;
-        box-shadow: none;
-        outline: none;
-        a {
-            color: #fff;
-            text-decoration: none;
-        }
+        font-size: 15px;
     }
 
-    .links span:hover {
-        background-color: #8b30a98a !important;
+    a {
+        color: #fff;
+        font-size: 15px;
+    }
+
+    a:hover {
+        color: white;
+        font-size: 17px;
+        transition: 0.5s;
     }

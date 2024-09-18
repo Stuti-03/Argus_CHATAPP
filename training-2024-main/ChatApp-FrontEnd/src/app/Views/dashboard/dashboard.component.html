@@ -1,41 +1,65 @@
-<div class="layout">
-    <div id="sidebar">
-        <div id="row1">
-            <div id="sidebarHeader">
-                <div class="avatarContainer">
-                    <img src="#" />
-                </div>
-                <div class="actionsContainer">
-                    <img src="#" />
-                    <img src="#" />
-                    <img src="#" />
-                </div>
-            </div>
-            <div id="searchBox">
-                <img width="19" src="#" />
-                <input type="text" placeholder="Search or start the new chat" />
-            </div>
-        </div>
-
-        <div id="sidebarContent">
-            <!-- <div id="noConversations">All chats are archived</div> -->
-
-            <div class="conversation" *ngFor="let conversation of conversations">
-                <div class="picture">
-                    <img src="#" />
-                </div>
-                <div class="content">
-                    <div class="conversationHeader">
-                        <div class="name">{{ conversation.name }}</div>
-                        <div class="time">{{ conversation.time }}</div>
+<body>
+    <img src="../../../assets/bgFinal.jpg" class="bg-img">
+    <div class="layout">
+        <!-- Sidebar starts here -->
+        <div id="sidebar">
+            <div id="row1">
+                <div id="sidebarHeader">
+                    <div class="avatarContainer">
+                        <img src="../../assets/images/noPic.svg" />
                     </div>
-                    <div class="message">
-                        <img *ngIf="!conversation.latestMessageRead" src="#" />
-                        <img *ngIf="conversation.latestMessageRead" src="#" /> {{ conversation.latestMessage }}
+                    <div class="actionsContainer">
+                        <img src="../../assets/images/statusIcon.svg" />
+                        <img src="../../assets/images/chatIcon.svg" />
+                        <img src="../../assets/images/moreVertIcon.svg" />
+                    </div>
+                </div>
+                <div id="searchBox">
+                    <img width="19" src="../../assets/images/searchIcon.svg" />
+                    <input type="text" placeholder="Search or start the new chat" />
+                </div>
+            </div>
+
+            <div id="sidebarContent">
+                <!-- <div id="noConversations">All chats are archived</div> -->
+
+                <div class="conversation" *ngFor="let conversation of conversations">
+                    <div class="picture">
+                        <img src="../../assets/images/noPic.svg" />
+                    </div>
+                    <div class="content">
+                        <div class="conversationHeader">
+                            <div class="name">{{ conversation.name }}</div>
+                            <div class="time">{{ conversation.time }}</div>
+                        </div>
+                        <div class="message">
+                            <img *ngIf="!conversation.latestMessageRead" src="../../assets/images/doubleTick.svg" />
+                            <img *ngIf="conversation.latestMessageRead" src="../../assets/images/doubleTickBlue.svg" /> {{ conversation.latestMessage }}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Sidebar ends here -->
 
-</div>
+    <!-- Mainchat starts here -->
+    <div class="chat-window">
+        <div *ngIf="selectedconversation; else noconversationSelected" class="chat-container">
+            <div class="chat-header">
+                <h3>Chat with {{ selectedconversation.name }}</h3>
+            </div>
+            <div class="chat-messages">
+                <p>Here you can display chat messages for {{ selectedconversation.name }}.</p>
+            </div>
+            <div class="chat-input">
+                <input [(ngModel)]="message" placeholder="Type a message..." />
+                <button (click)="sendMessage()">Send</button>
+            </div>
+        </div>
+        <ng-template #noconversationSelected>
+            <p>Please select a user to start chatting.</p>
+        </ng-template>
+    </div>
+
+</body>
