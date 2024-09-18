@@ -9,7 +9,7 @@
                         <img src="../../assets/images/noPic.svg" />
                     </div>
                     <div class="actionsContainer">
-                        <img src="../../assets/images/statusIcon.svg" />
+                        <img src="#" />
                         <img src="../../assets/images/chatIcon.svg" />
                         <img src="../../assets/images/moreVertIcon.svg" />
                     </div>
@@ -44,22 +44,6 @@
     <!-- Sidebar ends here -->
 
     <!-- Mainchat starts here -->
-    <div class="chat-window">
-        <div *ngIf="selectedconversation; else noconversationSelected" class="chat-container">
-            <div class="chat-header">
-                <h3>Chat with {{ selectedconversation.name }}</h3>
-            </div>
-            <div class="chat-messages">
-                <p>Here you can display chat messages for {{ selectedconversation.name }}.</p>
-            </div>
-            <div class="chat-input">
-                <input [(ngModel)]="message" placeholder="Type a message..." />
-                <button (click)="sendMessage()">Send</button>
-            </div>
-        </div>
-        <ng-template #noconversationSelected>
-            <p>Please select a user to start chatting.</p>
-        </ng-template>
-    </div>
+
 
 </body>
