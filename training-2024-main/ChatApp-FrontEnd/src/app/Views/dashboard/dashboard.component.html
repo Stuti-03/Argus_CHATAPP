@@ -1,49 +1,63 @@
 <body>
-    <img src="../../../assets/bgFinal.jpg" class="bg-img">
-    <div class="layout">
-        <!-- Sidebar starts here -->
-        <div id="sidebar">
-            <div id="row1">
-                <div id="sidebarHeader">
-                    <div class="avatarContainer">
-                        <img src="../../assets/images/noPic.svg" />
-                    </div>
-                    <div class="actionsContainer">
-                        <img src="#" />
-                        <img src="../../assets/images/chatIcon.svg" />
-                        <img src="../../assets/images/moreVertIcon.svg" />
-                    </div>
-                </div>
-                <div id="searchBox">
-                    <img width="19" src="../../assets/images/searchIcon.svg" />
-                    <input type="text" placeholder="Search or start the new chat" />
-                </div>
-            </div>
-
-            <div id="sidebarContent">
-                <!-- <div id="noConversations">All chats are archived</div> -->
-
-                <div class="conversation" *ngFor="let user of users">
-                    <div class="picture">
-                        <img src="../../assets/images/noPic.svg" />
-                    </div>
-                    <div class="content">
-                        <div class="conversationHeader">
-                            <div class="name">{{ user.firstName +" "+ user.lastName }}</div>
-                            <!-- <div class="time">{{ user.time }}</div> -->
+    <img src="../../../assets/bgFinal.jpg " class="bg-img ">
+    <div class="mainBody ">
+        <div class="layout ">
+            <!-- Sidebar starts here -->
+            <div class="sidebar ">
+                <div class="row1 ">
+                    <div class="sidebarHeader ">
+                        <div class="avatarContainer ">
+                            <img src="../../assets/se " />
                         </div>
-                        <!-- <div class="message">
-                            <img *ngIf="!user.latestMessageRead" src="../../assets/images/doubleTick.svg" />
-                            <img *ngIf="user.latestMessageRead" src="../../assets/images/doubleTickBlue.svg" /> {{ user.latestMessage }}
+                        <div class="actionsContainer ">
+                            <img src="# " />
+                            <img src="../../assets/images/chatIcon.svg " />
+                            <img src="../../assets/images/moreVertIcon.svg " />
+                        </div>
+                    </div>
+                    <div class="searchBox ">
+                        <img width="19 " src="../../assets/images/searchIcon.svg " />
+                        <input type="text" placeholder="Search or start the new chat " />
+                    </div>
+                </div>
+
+                <div class="sidebarContent ">
+                    <!-- <div id="noConversations ">All chats are archived</div> -->
+
+                    <div class="conversation " *ngFor="let user of users ">
+                        <div class="picture ">
+                            <img src="../../assets/images/noPic.svg " />
+                        </div>
+                        <div class="content ">
+                            <div class="conversationHeader ">
+                                <div class="name ">{{ user.firstName +" "+ user.lastName }}</div>
+                                <!-- <div class="time ">{{ user.time }}</div> -->
+                            </div>
+                            <!-- <div class="message ">
+                            <img *ngIf="!user.latestMessageRead " src="../../assets/images/doubleTick.svg " />
+                            <img *ngIf="user.latestMessageRead " src="../../assets/images/doubleTickBlue.svg " /> {{ user.latestMessage }}
                         </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Sidebar ends here -->
+
+        <!-- Mainchat starts here -->
+        <div class="mainChat ">
+            <div class="chats ">
+                <div id="userProfile ">
+
+                </div>
+                <div id="chatContainer ">
+
+                </div>
+                <div id="typeText ">
+
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- Sidebar ends here -->
-
-    <!-- Mainchat starts here -->
-
-
 </body>
