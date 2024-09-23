@@ -24,7 +24,7 @@
                 <div class="sidebarContent">
                     <!-- <div id="noConversations ">All chats are archived</div> -->
 
-                    <div class="conversation" *ngFor="let user of users">
+                    <div class="conversation" *ngFor="let user of users" (click)="selectUser(user)">
                         <div class="picture">
                             <img src="../../assets/images/noPic.svg " />
                         </div>
@@ -54,21 +54,20 @@
                     <div class="user_image">
                         <img src="../../assets/user1.png" />
                     </div>
-                    <div class="userName">{{ selectedUser.firstName + " " + selectedUser.lastName}}</div>
+                    <div *ngIf="selectedUser" class="userName">{{ selectedUser.firstName + " " + selectedUser.lastName}}</div>
                     <div class="call_icon">
                         <img src="../../assets/images/chatIcon.svg " />
                         <img src="../../assets/images/moreVertIcon.svg " />
                     </div>
                 </div>
-            </div>
-
-            <div class="chatContainer">
-                <div class="chatArea"></div>
-            </div>
-            <div class="typeArea">
-                <div class="chat-input">
-                    <input placeholder="Type a message..." />
-                    <button>Send</button>
+                <div class="chatContainer">
+                    <div class="chatArea"></div>
+                </div>
+                <div class="typeArea">
+                    <div class="chat-input">
+                        <input placeholder="Type a message..." />
+                        <button>Send</button>
+                    </div>
                 </div>
             </div>
         </div>

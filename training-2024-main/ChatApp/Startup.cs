@@ -1,11 +1,11 @@
 ﻿namespace ChatApp;
-
 using ChatApp.Business.ServiceInterfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using ChatApp.Infrastructure.ServiceImplementation;
 
 public class Startup
 {
@@ -48,6 +48,9 @@ public class Startup
 
             services.AddControllersWithViews();
 
+            
+             // Register IMessageService and its implementation
+            services.AddScoped<IMessageService, MessageService>();
 
             //JWT Authentication
             // services.AddAuthentication(x => 
