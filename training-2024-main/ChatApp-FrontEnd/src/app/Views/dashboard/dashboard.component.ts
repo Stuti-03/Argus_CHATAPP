@@ -19,15 +19,20 @@ import { MessageService } from '../../Services/message/message.service';
 })
 export class DashboardComponent implements OnInit {
   users: User[] = [];
+  selectedUser: User | null = null;
+  chatMessages!: Message[];
+  messageText: string = '';
+  public user: any;
+  userId!: number;
   constructor(
     private router: Router,
     private authService: AuthService,
     private loaderService: LoaderService,
     private messageService: MessageService
-  ) {}
+  ) {this.user = JSON.parse(localStorage.getItem('user') || '{}');
+    this.userId = this.user.profileId;}
   ngOnInit() {
     this.getUsers();
-    this.loadMessages();
   }
   getUsers(): void {
     this.authService.getUsers().subscribe({
@@ -40,30 +45,76 @@ export class DashboardComponent implements OnInit {
       },
     });
   }
-  selectedUser: User | null = null;
   selectUser(users: User): void {
     this.selectedUser = users;
+    this.fetchAllMessages();
   }
 
-  messages: Message[] = [];
-  newMessage: string = '';
+  fetchAllMessages() {
+    if (!this.selectedUser) return;
+    var messages = this.messageService.getMessages(this.selectedUser?.id).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.chatMessages = response;
+      },
+      error: (error) => {
+        console.error('Unable to fetch message', error);
+      },
+    });
+  }
+  onSendMessage(inputEl: HTMLInputElement): void {
+    if (!this.selectedUser || inputEl.value.trim() === '') {
+      return;
+    }
+    this.messageText = inputEl.value;
+    // const payload = {
+    //   senderId: this.userId,
+    //   receiverId: this.selectedUser.id,
+    //   messageBody: this.messageText,
+    //   isRead: false
+    // };
+    // console.log('Payload:', payload); // Log the payload
+    // console.log(this.messageText);
+    // console.log(this.selectedUser.id);
+    this.messageService.sendMessage(this.messageText, this.selectedUser.id).subscribe({
+      next: (response) => {
+        // console.log('Message sent successfully', response);
+        this.chatMessages.push();
+        this.fetchAllMessages();
+        inputEl.value = '';
+        this.messageText = '';
+      },
+      error: (error) => {
+        console.error('Failed to send message', error);
+      },
+    });
+  }
 
-  loadMessages() {
-    this.messageService.getMessages().subscribe((data) => {
-      this.messages = data;
-    });
-  }
-  sendMessage() {
-    const message: Message = {
-      senderId: 2,
-      receiverId: 1,
-      content: this.newMessage,
-      timestamp: new Date(),
-      seen: false,
-    };
-    this.messageService.sendMessage(message).subscribe(() => {
-      this.loadMessages();
-      this.newMessage = '';
-    });
-  }
+
+
+
+
+
+
+  // messages: Message[] = [];
+  // newMessage: string = '';
+
+  // loadMessages() {
+  //   this.messageService.getMessages().subscribe((data) => {
+  //     this.messages = data;
+  //   });
+  // }
+  // sendMessage() {
+  //   const message: Message = {
+  //     senderId: 2,
+  //     receiverId: 1,
+  //     content: this.newMessage,
+  //     timestamp: new Date(),
+  //     seen: false,
+  //   };
+  //   this.messageService.sendMessage(message).subscribe(() => {
+  //     this.loadMessages();
+  //     this.newMessage = '';
+  //   });
+  // }
 }

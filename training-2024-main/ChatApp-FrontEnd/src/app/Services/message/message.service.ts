@@ -16,11 +16,23 @@ export class MessageService {
 
   constructor(private http: HttpClient) {}
 
-  getMessages(): Observable<Message[]> {
-    return this.http.get<Message[]>(this.getMessageUrl);
-  }
+  user = JSON.parse(localStorage.getItem('user') || '{}');
+  userId = Number(this.user.profileId);
 
-  sendMessage(message: Message): Observable<Message> {
-    return this.http.post<Message>(this.sendMessageUrl, message);
+  sendMessage(messageBody: string, receiverId: number): Observable<any> {
+    const payload = {
+      senderId: this.userId,
+      receiverId: receiverId,
+      content: messageBody,
+      isRead: false
+    };
+    return this.http.post(this.sendMessageUrl, payload);
+  }
+  // api to get message list
+  getMessages(receiverId: number): Observable<any> {
+    console.log(receiverId);
+    return this.http.get(
+      `${this.getMessageUrl}?senderId=${this.userId}&receiverId=${receiverId}`
+    );
   }
 }
