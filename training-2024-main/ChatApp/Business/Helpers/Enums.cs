@@ -9,7 +9,6 @@ namespace ChatApp.Business.Helpers
     {
         public const string FirstNameClaim = "firstName";
         public const string LastNameClaim = "lastName";
-
     }
     public enum ProfileType
     {

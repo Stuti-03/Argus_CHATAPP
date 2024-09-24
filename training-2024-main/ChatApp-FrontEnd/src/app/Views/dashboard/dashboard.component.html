@@ -65,8 +65,8 @@
                 </div>
                 <div class="typeArea">
                     <div class="chat-input">
-                        <input placeholder="Type a message..." />
-                        <button>Send</button>
+                        <input [(ngModel)]="newMessage" placeholder="Type a message..." />
+                        <button (click)="sendMessage()">Send</button>
                     </div>
                 </div>
             </div>
