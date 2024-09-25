@@ -47,6 +47,7 @@ public List<ProfileModel> GetAllUsers(int id)
     {
         return context.Profiles.Where(s => s.Id != id).Select(profile => new ProfileModel
         {
+            Id = profile.Id,
             FirstName = profile.FirstName,
             LastName = profile.LastName,
             Email = profile.Email,

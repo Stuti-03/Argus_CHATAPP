@@ -1,8 +1,8 @@
+import { User } from './../../SharedComponents/Model/user.model';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../../SharedComponents/Model/user.model';
 import { AuthService } from '../../Services/auth/auth.service';
 import { LoaderService } from '../../Services/loader/loader.service';
 import { LoginComponent } from '../login/login.component';
@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
     private loaderService: LoaderService,
     private messageService: MessageService
   ) {this.user = JSON.parse(localStorage.getItem('user') || '{}');
-    this.userId = this.user.profileId;}
+    this.userId = this.user.userId;}
   ngOnInit() {
     this.getUsers();
   }
@@ -47,18 +47,20 @@ export class DashboardComponent implements OnInit {
   }
   selectUser(users: User): void {
     this.selectedUser = users;
+    console.log(this.selectedUser);
     this.fetchAllMessages();
   }
 
   fetchAllMessages() {
     if (!this.selectedUser) return;
+    console.log(this.selectedUser);
     var messages = this.messageService.getMessages(this.selectedUser?.id).subscribe({
       next: (response) => {
         console.log(response);
         this.chatMessages = response;
       },
       error: (error) => {
-        console.error('Unable to fetch message', error);
+        console.log('Unable to fetch message', error);
       },
     });
   }
@@ -74,8 +76,8 @@ export class DashboardComponent implements OnInit {
     //   isRead: false
     // };
     // console.log('Payload:', payload); // Log the payload
-    // console.log(this.messageText);
-    // console.log(this.selectedUser.id);
+    console.log(this.messageText);
+    console.log(this.selectedUser.id);
     this.messageService.sendMessage(this.messageText, this.selectedUser.id).subscribe({
       next: (response) => {
         // console.log('Message sent successfully', response);

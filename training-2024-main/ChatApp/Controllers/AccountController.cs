@@ -65,7 +65,7 @@ namespace ChatApp;
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var claims = new[] {
-                    new Claim("profileId", profileInfo.Id.ToString()),                    
+                    new Claim("userId", profileInfo.Id.ToString()),                    
                     new Claim(JwtRegisteredClaimNames.Sub, profileInfo.UserName),
                     new Claim(JwtRegisteredClaimNames.Email, profileInfo.Email),
                     new Claim(ClaimsConstant.FirstNameClaim, profileInfo.FirstName),

@@ -54,7 +54,7 @@ export class LoginComponent {
     localStorage.setItem(
       'user',
       JSON.stringify({
-        userId: decodedToken.profileId,
+        userId: decodedToken.userId,
         username: decodedToken.sub, // Assuming sub is the username
         email: decodedToken.email, // Assuming email is in the token
         firstName: decodedToken.firstName, // Adjust this as per your token claims

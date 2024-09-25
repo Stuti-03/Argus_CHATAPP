@@ -45,5 +45,4 @@ namespace ChatApp.Infrastructure.ServiceImplementation;
                         Timestamp = m.Timestamp
                     }
                 ).ToList();
-    }
-    }
+    }}

@@ -17,7 +17,7 @@ export class MessageService {
   constructor(private http: HttpClient) {}
 
   user = JSON.parse(localStorage.getItem('user') || '{}');
-  userId = Number(this.user.profileId);
+  userId = Number(this.user.userId);
 
   sendMessage(messageBody: string, receiverId: number): Observable<any> {
     const payload = {
