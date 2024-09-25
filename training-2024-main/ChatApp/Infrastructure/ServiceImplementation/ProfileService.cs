@@ -31,11 +31,11 @@ public class ProfileService : IProfileService
                     Password = regModel.Password,
                     UserName = regModel.UserName,
                     Email = regModel.Email,
-                    CreatedAt = DateTime.UtcNow,
+                    CreatedAt = DateTime.Now,
                     ProfileType = ProfileType.User,
                     CreatedBy = 1,
                     LastUpdatedBy = 1,
-                    LastUpdatedAt = DateTime.UtcNow
+                    LastUpdatedAt = DateTime.Now
                 };
                 context.Profiles.Add(newUser);
                 context.SaveChanges();

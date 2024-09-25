@@ -30,7 +30,6 @@ public class MessageController : ControllerBase
     [HttpPost("SendMessage")]
     public IActionResult SendMessage([FromBody] SendModel sendModel)
     {
-        // message.Timestamp = DateTime.UtcNow; // Set the timestamp
         var message = _messageService.Sendmessage(sendModel);
         
         if (message == null || message.SenderId <= 0 || message.ReceiverId <= 0 || string.IsNullOrEmpty(message.Content))

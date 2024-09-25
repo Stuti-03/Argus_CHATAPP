@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit {
   messageText: string = '';
   public user: any;
   userId!: number;
+
+
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -93,30 +95,4 @@ export class DashboardComponent implements OnInit {
   }
 
 
-
-
-
-
-
-  // messages: Message[] = [];
-  // newMessage: string = '';
-
-  // loadMessages() {
-  //   this.messageService.getMessages().subscribe((data) => {
-  //     this.messages = data;
-  //   });
-  // }
-  // sendMessage() {
-  //   const message: Message = {
-  //     senderId: 2,
-  //     receiverId: 1,
-  //     content: this.newMessage,
-  //     timestamp: new Date(),
-  //     seen: false,
-  //   };
-  //   this.messageService.sendMessage(message).subscribe(() => {
-  //     this.loadMessages();
-  //     this.newMessage = '';
-  //   });
-  // }
 }

@@ -6,31 +6,31 @@
             <div class="sidebar">
                 <div class="row1">
                     <div class="sidebarHeader">
-                        <div class="avatarContainer">
-                            <img src="../../assets/se " />
+                        <div class="nameContainer ">
+                            {{ user.firstName + " " + user.lastName }}
                         </div>
-                        <div class="actionsContainer">
-                            <img src="# " />
-                            <img src="../../assets/images/chatIcon.svg " />
-                            <img src="../../assets/images/moreVertIcon.svg " />
+                        <div class="actionsContainer ">
+                            <img src="../../assets/chat_call.png " />
+                            <img src="../../assets/chat_profile.png " />
+                            <img src="../../assets/chat_logout.png " />
                         </div>
                     </div>
-                    <div class="searchBox">
-                        <img width="19 " src="../../assets/images/searchIcon.svg " />
-                        <input type="text" placeholder="Search or start the new chat " />
+                    <div class="searchBox ">
+                        <img width="19 " src="../../assets/search.png " />
+                        <input type="text " placeholder="Search or start the new chat " />
                     </div>
                 </div>
 
-                <div class="sidebarContent">
+                <div class="sidebarContent ">
                     <!-- <div id="noConversations ">All chats are archived</div> -->
 
-                    <div class="conversation" *ngFor="let user of users" (click)="selectUser(user)">
-                        <div class="picture">
-                            <img src="../../assets/images/noPic.svg " />
+                    <div class="conversation " *ngFor="let user of users " (click)="selectUser(user) ">
+                        <div class="picture ">
+                            <img src="../../assets/user_icon.png" />
                         </div>
-                        <div class="content">
-                            <div class="conversationHeader">
-                                <div class="name">
+                        <div class="content ">
+                            <div class="conversationHeader ">
+                                <div class="name ">
                                     {{ user.firstName + " " + user.lastName }}
                                 </div>
                                 <!-- <div class="time ">{{ user.time }}</div> -->
@@ -48,25 +48,48 @@
         <!-- Sidebar ends here -->
 
         <!-- Mainchat starts here -->
-        <div class="mainChat">
-            <div class="chats">
-                <div class="userNav">
-                    <div class="user_image">
-                        <img src="../../assets/user1.png" />
+        <div class="mainChat ">
+            <div class="chats ">
+                <div class="userNav ">
+                    <div class="user_image ">
+                        <img src="../../assets/user1.png " />
                     </div>
-                    <div *ngIf="selectedUser" class="userName">{{ selectedUser.firstName + " " + selectedUser.lastName}}</div>
-                    <div class="call_icon">
-                        <img src="../../assets/images/chatIcon.svg " />
-                        <img src="../../assets/images/moreVertIcon.svg " />
+                    <div *ngIf="selectedUser " class="userName ">{{ selectedUser.firstName + " " + selectedUser.lastName}}</div>
+                    <div class="call_icon ">
+                        <img width="35" src="../../assets/3dots.png" />
                     </div>
                 </div>
-                <div class="chatContainer">
-                    <div class="chatArea"></div>
+
+
+                <!-- Chatting area -->
+                <div class="chatContainer ">
+                    <div class="card-body ">
+                        <div *ngFor="let message of chatMessages ">
+                            <div class="receivedText " *ngIf="message.receiverId==userId ">
+                                <div>
+                                    <p class="text ">{{message.content}}</p>
+                                    <p class="textTime ">{{ message.timestamp | date : "shortTime " }}</p>
+                                </div>
+                            </div>
+                            <div class="sentText " *ngIf="message.senderId==userId ">
+                                <div>
+                                    <p class="text ">{{message.content}}</p>
+                                    <p class="textTime ">{{ message.timestamp | date : "shortTime "}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="typeArea">
-                    <div class="chat-input">
-                        <input placeholder="Type a message..." #messageText (keyup.enter)="onSendMessage(messageText)" />
-                        <button (click)="onSendMessage(messageText)">Send</button>
+
+
+
+
+
+                <!-- Type message area -->
+                <div class="typeArea ">
+                    <div class="chat-input ">
+                        <input placeholder="Type a message... " #messageText (keyup.enter)="onSendMessage(messageText) " />
+                        <button (click)="onSendMessage(messageText) ">Send</button>
                     </div>
                 </div>
             </div>
