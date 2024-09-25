@@ -21,7 +21,7 @@ namespace ChatApp.Infrastructure.ServiceImplementation;
             SenderId = sendModel.SenderId,
             ReceiverId = sendModel.ReceiverId,
             Content = sendModel.Content,
-            Timestamp = sendModel.Timestamp,
+            Timestamp = DateTime.Now,
             Seen = false,
         };
         config.Messages.Add(message);

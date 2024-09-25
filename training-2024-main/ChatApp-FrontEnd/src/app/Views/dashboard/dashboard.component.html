@@ -68,13 +68,13 @@
                             <div class="receivedText " *ngIf="message.receiverId==userId ">
                                 <div>
                                     <p class="text ">{{message.content}}</p>
-                                    <p class="textTime ">{{ message.timestamp | date : "shortTime " }}</p>
+                                    <p class="textTime ">{{ message.timestamp | date : "shortTime" }}</p>
                                 </div>
                             </div>
                             <div class="sentText " *ngIf="message.senderId==userId ">
                                 <div>
                                     <p class="text ">{{message.content}}</p>
-                                    <p class="textTime ">{{ message.timestamp | date : "shortTime "}}</p>
+                                    <p class="textTime ">{{ message.timestamp | date : "shortTime"}}</p>
                                 </div>
                             </div>
                         </div>

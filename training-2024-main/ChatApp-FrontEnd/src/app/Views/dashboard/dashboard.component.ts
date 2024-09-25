@@ -71,13 +71,6 @@ export class DashboardComponent implements OnInit {
       return;
     }
     this.messageText = inputEl.value;
-    // const payload = {
-    //   senderId: this.userId,
-    //   receiverId: this.selectedUser.id,
-    //   messageBody: this.messageText,
-    //   isRead: false
-    // };
-    // console.log('Payload:', payload); // Log the payload
     console.log(this.messageText);
     console.log(this.selectedUser.id);
     this.messageService.sendMessage(this.messageText, this.selectedUser.id).subscribe({
