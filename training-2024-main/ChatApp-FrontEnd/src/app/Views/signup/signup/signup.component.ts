@@ -3,6 +3,7 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../Services/auth/auth.service';
 import { LoaderService } from '../../../Services/loader/loader.service';
 import { FormsModule } from '@angular/forms';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-signup',
@@ -42,6 +43,7 @@ export class SignupComponent {
       next: (response) => {
         this.loaderService.hide();
         alert('Account Created!');
+        this.saveToken(response);
         this.router.navigate(['/dashboard']);
       },
       error: (error) => {
@@ -49,4 +51,22 @@ export class SignupComponent {
         console.error('Signup failed', error);
       }
     });
-  }}
+  }
+    saveToken(response: any) {
+      // Decode token to extract user info
+      const decodedToken: any = jwtDecode(response.token);
+      console.log(decodedToken);
+      // Store extracted info in localStorage
+      localStorage.setItem(
+        'user',
+        JSON.stringify({
+          userId: decodedToken.userId,
+          username: decodedToken.sub, // Assuming sub is the username
+          email: decodedToken.email, // Assuming email is in the token
+          firstName: decodedToken.firstName, // Adjust this as per your token claims
+          lastName: decodedToken.lastName, // Adjust this as per your token claims
+        })
+      );
+      localStorage.setItem('token', response.token);
+    }
+  }

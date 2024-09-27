@@ -52,7 +52,7 @@ namespace ChatApp;
         }
 
         // for retrieving data in dashboard
-        [HttpGet("GetUsers")]
+        [HttpGet("GetUsers/{id}")]
         public ActionResult<List<ProfileModel>> GetAllUsers(int id)
         {
             var profiles = _profileService.GetAllUsers(id);

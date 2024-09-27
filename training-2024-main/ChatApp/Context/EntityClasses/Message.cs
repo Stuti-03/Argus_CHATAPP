@@ -15,7 +15,7 @@ namespace ChatApp.Context.EntityClasses
         public required int ReceiverId {get; set;}
         public required string Content {get; set;}
         public DateTime Timestamp { get; set; }
-        public bool Seen {get; set;}
+        public bool Seen {get; set;} = false;
 // transactions
         [ForeignKey("SenderId")]
         public Profile Sender { get; set; }

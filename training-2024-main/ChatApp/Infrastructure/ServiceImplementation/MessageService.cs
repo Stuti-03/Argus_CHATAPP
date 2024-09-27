@@ -33,6 +33,22 @@ namespace ChatApp.Infrastructure.ServiceImplementation;
         // getting messages
     public  List<SendModel> ReceiveMessage(int SenderId, int ReceiverId)
     {
+
+        // Mark unread messages as read
+            var unreadMessages = config
+                .Messages.Where(m =>
+                    m.SenderId == ReceiverId && m.ReceiverId == SenderId && !m.Seen
+                )
+                .ToList();
+
+            foreach (var message in unreadMessages)
+            {
+                message.Seen = true;
+            }
+            config.SaveChanges();
+
+
+        //returning messages
         return config
                 .Messages.Where(m =>
                     (m.SenderId == SenderId && m.ReceiverId == ReceiverId)
@@ -42,7 +58,9 @@ namespace ChatApp.Infrastructure.ServiceImplementation;
                         SenderId = m.SenderId,
                         ReceiverId = m.ReceiverId,
                         Content = m.Content,
-                        Timestamp = m.Timestamp
+                        Timestamp = m.Timestamp,
+                        Seen = m.Seen,
                     }
                 ).ToList();
-    }}
+    }
+    }

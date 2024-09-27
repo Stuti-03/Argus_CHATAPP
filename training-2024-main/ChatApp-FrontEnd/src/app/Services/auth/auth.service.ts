@@ -29,8 +29,8 @@ export class AuthService {
 
   // to get all users name in chatapp dashboard sidebar
   private getUsersUrl = API_ENDPOINTS.getUserUrl;
-  getUsers(): Observable<any>
+  getUsers(id : number): Observable<any>
   {
-    return this.http.get(this.getUsersUrl)
+    return this.http.get(this.getUsersUrl+id)
   }
 }

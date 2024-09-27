@@ -8,6 +8,7 @@ import { API_ENDPOINTS } from '../../Constants/app.constants';
   providedIn: 'root',
 })
 export class MessageService {
+
   // api to send messages
   private sendMessageUrl = API_ENDPOINTS.sendMessageUrl;
 

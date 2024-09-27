@@ -4,5 +4,5 @@ export interface Message {
   senderId: number;
   receiverId: number;
   timestamp: string; // Can be string or Date, depending on your usage
-  seen: Boolean;
+  seen: boolean;
 }
